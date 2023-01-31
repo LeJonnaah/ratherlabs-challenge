@@ -8,16 +8,22 @@ datasource db {
 }
 
 model Room {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  name         String
-  description  String
-  createdAt    DateTime @default(now())
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  password    String
+  description String
+  createdAt   DateTime  @default(now())
+  students    Student[]
 }
 
 model Student {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  name         String
-  lastName     String
-  age          Int
-  createdAt    DateTime @default(now())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  lastName  String
+  password  String
+  age       String
+  gender    String
+  createdAt DateTime @default(now())
+  room      Room?    @relation(fields: [roomId], references: [id])
+  roomId    String?  @db.ObjectId
 }

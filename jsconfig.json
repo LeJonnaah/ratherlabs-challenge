@@ -5,6 +5,7 @@
       "@/*": ["./src/*"],
       "@lib/*": ["lib/*"],
       "@public/*": ["public/*"],
+      "@api/*": ["pages/api/*"],
     }
   }
 }

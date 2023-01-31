@@ -1,11 +1,8 @@
 import Students from "./students";
 
-export default function Home( { children } ) {
+const StudenLayout = ({ children }) => {
     return (
         <section>
-            <div>
-                <h1>Students</h1>
-            </div>
             <aside>
                 <Students />
             </aside>
@@ -14,4 +11,6 @@ export default function Home( { children } ) {
             </main>
         </section>
     );
-}
+};
+
+export default StudenLayout;

@@ -1,8 +1,6 @@
-'use client'
-
 import Link from "next/link"
 
-const Header = () => {
+const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <div className="container-fluid">
@@ -32,6 +30,11 @@ const Header = () => {
                                 Students
                             </Link>
                         </li>
+                        <li className="nav-item">
+                            <Link href="/students" className="nav-link">
+                                StudentList
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -39,4 +42,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default NavBar

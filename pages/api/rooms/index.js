@@ -1,4 +1,4 @@
-import { createRoom, getRooms } from "@lib/prisma/rooms";
+import { createRoom, getRooms, deleteRoom, updateRoom } from "@lib/prisma/rooms";
 
 const handler = async (req, res) => {
     if (req.method === 'GET') {
@@ -26,6 +26,17 @@ const handler = async (req, res) => {
         try {
             const { id } = req.body
             const { room, error } = await deleteRoom(id)
+            if (error) throw new Error(error)
+            res.status(200).json({ room })
+        } catch (error) {
+            res.status(500).json({ error: error.message })
+        }
+    }
+
+    if (req.method === 'PUT') {
+        try {
+            const { id, data } = req.body
+            const { room, error } = await updateRoom(id, data)
             if (error) throw new Error(error)
             res.status(200).json({ room })
         } catch (error) {
