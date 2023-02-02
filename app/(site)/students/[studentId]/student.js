@@ -1,3 +1,5 @@
+'use client'
+
 import { getStudents } from "@lib/prisma/students";
 
 const Student = async ({ student }) => {
