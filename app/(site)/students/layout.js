@@ -1,16 +1,16 @@
 import Students from "./students";
 
-const StudenLayout = ({ children }) => {
+const StudentsLayout = ({ children }) => {
     return (
-        <section>
-            <aside>
-                <Students />
-            </aside>
-            <main>
-                {children}
-            </main>
-        </section>
+        <main>
+            <div className="flex flex-col items-center justify-center w-full h-full">
+                <div className="flex flex-col items-center justify-center w-full h-full">
+                    {children}
+                    <Students />
+                </div>
+            </div>
+        </main>
     );
 };
 
-export default StudenLayout;
+export default StudentsLayout;

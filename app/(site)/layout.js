@@ -1,6 +1,7 @@
 import '../../styles/globals.css'
 import 'bootswatch/dist/superhero/bootstrap.min.css'
 import NavBar from '../components/ui/NavBar'
+import SideBar from 'app/components/ui/SideBar'
 import Footer from '../components/ui/Footer'
 
 export default function RootLayout({ children }) {
@@ -9,12 +10,23 @@ export default function RootLayout({ children }) {
         className='h-100'
         >
         <body
-            className="d-flex flex-column h-100"
+        className='d-flex flex-column h-100'
         >
             <NavBar />
-            <main>
-                {children}
-            </main>
+            <div
+            className='container-fluid'
+            >
+                <div
+                className='row'
+                >
+                    <SideBar />
+                    <main
+                    className='col-10'
+                    >
+                        {children}
+                    </main>
+                </div>
+            </div>
             <Footer />
         </body>
         </html>

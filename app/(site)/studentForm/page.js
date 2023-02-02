@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
+import Swal from 'sweetalert2'
 
 const StudentForm = () => {
     const [student, setStudent] = useState({
@@ -38,101 +39,73 @@ const StudentForm = () => {
                 password: '',
             });
         } else {
-            alert('Please fill out all fields');
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
         }
     };
 
     return (
-        <form
-            onSubmit={handleSubmit}
-            className="flex flex-col items-center justify-center w-full h-full">
-            <div className="flex flex-col items-center justify-center w-full h-full">
-                <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700"
-                >
-                    Name
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        value={student.name}
-                        onChange={handleChange}
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    />
-                </label>
-                <label
-                    htmlFor="lastName"
-                    className="block text-sm font-medium text-gray-700"
-                >
-                    Last Name
-                    <input
-                        type="text"
-                        name="lastName"
-                        id="lastName"
-                        value={student.lastName}
-                        onChange={handleChange}
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    />
-                </label>
-                <label
-                    htmlFor="age"
-                    className="block text-sm font-medium text-gray-700"
-                >
-                    Age
-                    <input
-                        type="number"
-                        name="age"
-                        id="age"
-                        value={student.age}
-                        onChange={handleChange}
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    />
-                </label>
-                <label
-                    htmlFor="gender"
-                    className="block text-sm font-medium text-gray-700"
-                >
-                    Gender
-                    <select
-                        name='gender'
-                        id='gender'
-                    >
-                        <option
-                            value={student.gender}
-                        >
-                            Man
-                        </option>
-                        <option
-                            value={student.gender}
-                        >
-                            Girl
-                        </option>
-                    </select>
-                </label>
-                <label
-                    htmlFor="password"
-                    className="block text-sm font-medium text-gray-700"
-                >
-                    Password
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        value={student.password}
-                        onChange={handleChange}
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    />
-                </label>
-                <button
-                    type="submit"
-                    className="mt-4 w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                    Submit
-                </button>
+        <form onSubmit={handleSubmit}>
+            <div className='form-group'>
+                <label htmlFor='name' className='form-label'>Name</label>
+                <input
+                    type='text'
+                    className='form-control'
+                    id='name'
+                    name='name'
+                    value={student.name}
+                    onChange={handleChange}
+                />
             </div>
+            <div className='form-group'>
+                <label htmlFor='lastName' className='form-label'>Last Name</label>
+                <input
+                    type='text'
+                    className='form-control'
+                    id='lastName'
+                    name='lastName'
+                    value={student.lastName}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className='form-group'>
+                <label htmlFor='age' className='form-label'>Age</label>
+                <input
+                    type='text'
+                    className='form-control'
+                    id='age'
+                    name='age'
+                    value={student.age}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className='form-group'>
+                <label htmlFor='gender'
+                className='form-label'>Gender</label>
+                <select
+                    className='form-control'
+                    id='gender'>
+                        <option value={student.gender}>Male</option>
+                        <option>Girl</option>
+                </select>
+            </div>
+            <div className='form-group'>
+                <label htmlFor='password' className='form-label'>Password</label>
+                <input
+                    type='password'
+                    className='form-control mb-3'
+                    id='password'
+                    name='password'
+                    value={student.password}
+                    onChange={handleChange}
+                />
+            </div>
+            <button type='submit' className='btn btn-primary'>Submit</button>
         </form>
     );
-}
+};
 
 export default StudentForm;

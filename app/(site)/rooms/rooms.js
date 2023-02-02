@@ -8,21 +8,25 @@ const Rooms = async () => {
     return (
         <div>
             <h1>Rooms</h1>
-            <Link href="/roomForm"
-            className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-                Create a new room
-            </Link>
-            <ul>
+            <ul className="list-group">
                 {rooms.map((room) => (
-                    <li key={room.id}>
-                        <Link href={`/rooms/${room.id}`}>
+                    <li key={room.id}
+                    className="list-group-item"
+                    >
+                        <Link href={`/rooms/${room.id}`}
+                        className="btn btn-link"
+                        >
                             {room.name}
                         </Link>
                         {/* <DeleteButton id={room.id} /> */}
                     </li>
                 ))}
             </ul>
+            <Link href="/roomForm"
+            className="btn btn-lg btn-primary"
+            >
+                Create a new room
+            </Link>
         </div>
     );
 };

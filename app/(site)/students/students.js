@@ -6,7 +6,6 @@ const Students = async () => {
 
     return (
         <div>
-            <h1>Students</h1>
             <ul>
                 {students.map((student) => (
                     <li key={student.id}>

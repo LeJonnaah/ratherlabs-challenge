@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
+import Swal from 'sweetalert2'
 
 const RoomForm = () => {
     const [room, setRoom] = useState({ 
@@ -31,57 +32,57 @@ const RoomForm = () => {
 
             setRoom({ name: '', description: '', password: '' });
         } else {
-            alert('Please fill out all fields');
-        }
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
+        };
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <fieldset>
-                <legend>Create a Room</legend>
-                <label htmlFor="name"
-                className='col-sm-2 col-form-label'
-                >Name</label>
-                <div className='col-sm-10'>
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        value={room.name}
-                        onChange={handleChange}
-                        className='form-control-plaintext'
-                    />
-                </div>
-                <label htmlFor="description"
-                className='col-sm-2 col-form-label'
-                >Description</label>
-                <div className='col-sm-10'>
-                    <input
-                        type="text"
-                        name="description"
-                        id="description"
-                        value={room.description}
-                        onChange={handleChange}
-                        className='form-control-plaintext'
-                    />
-                </div>
-                <label htmlFor="password"
-                className='col-sm-2 col-form-label'
-                >Password</label>
-                <div className='col-sm-10'>
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        value={room.password}
-                        onChange={handleChange}
-                        className='form-control-plaintext'
-                    />
-                </div>
-                <button type="submit" className='btn btn-primary'>Create Room</button>
-            </fieldset>
+            <div className='form-group'>
+                <label htmlFor='name' className='form-label'>Name</label>
+                <input
+                    type='text'
+                    className='form-control'
+                    id='name'
+                    name='name'
+                    value={room.name}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            <div className='form-group'>
+                <label htmlFor='description' className='form-label'>Description</label>
+                <input
+                    type='text'
+                    className='form-control'
+                    id='description'
+                    name='description'
+                    value={room.description}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            <div className='form-group'>
+                <label htmlFor='password' className='form-label'>Password</label>
+                <input
+                    type='password'
+                    className='form-control mb-3'
+                    id='password'
+                    name='password'
+                    value={room.password}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            <button type='submit' className='btn btn-primary'>
+                Submit
+            </button>
         </form>
     );
-    };
+};
 
     export default RoomForm;

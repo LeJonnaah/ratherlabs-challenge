@@ -1,7 +1,7 @@
 'use client'
 
-
 import React, { useState } from 'react';
+import Swal from 'sweetalert2'
 
 const Room = ({ room }) => {
     const [password, setPassword] = useState('');
@@ -16,7 +16,11 @@ const Room = ({ room }) => {
         if (password === room.password) {
             setIsCorrect(true);
         } else {
-            alert('Incorrect password');
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Invalid password!',
+            });
         }
     };
 
@@ -27,21 +31,30 @@ const Room = ({ room }) => {
                 <p>{room.description}</p>
             </div>
         );
-    } else {
+    } else {    
         return (
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="password">Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    value={password}
-                    onChange={handleChange}
-                />
-                <button type="submit">Enter Room</button>
-            </form>
+            <div>
+                <h1>{room.name}</h1>
+                <p>{room.description}</p>
+                <form onSubmit={handleSubmit}>
+                    <div className='form-group'>
+                        <label htmlFor='password' className='form-label'>Password</label>
+                        <input
+                            type='password'
+                            className='form-control'
+                            id='password'
+                            name='password'
+                            value={password}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <button type='submit' className='btn btn-primary'>
+                        Enter
+                    </button>
+                </form>
+            </div>
         );
     }
-}
+};
 
 export default Room;
