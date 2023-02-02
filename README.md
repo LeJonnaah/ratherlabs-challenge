@@ -24,3 +24,7 @@ Bootstrap 5 Docs: [https://getbootstrap.com/docs/5.1/getting-started/introductio
 ReactJS Docs: [https://reactjs.org/docs/getting-started.html](https://reactjs.org/docs/getting-started.html)
 
 I have watched a lot of videos on YouTube to learn how to make this project.
+
+## Deployment
+
+Vercel: [https://ratherlabs-challenge-kvda.vercel.app/](https://ratherlabs-challenge-kvda.vercel.app/)
