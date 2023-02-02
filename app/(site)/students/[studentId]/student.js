@@ -1,11 +1,5 @@
-'use client'
-
-import { getStudents } from "@lib/prisma/students";
-
 const Student = async ({ student }) => {
-
-    const { students } = await getStudents();
-
+try {
     return (
         <div>
             <h3>Student Name: {student.name}</h3>
@@ -14,6 +8,9 @@ const Student = async ({ student }) => {
             <p>Gender: {student.gender}</p>
         </div>
     );
+} catch (error) {
+    return <div>{error.message}</div>;
+}
     }
 
 export default Student;

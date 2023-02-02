@@ -24,6 +24,7 @@ const Room = ({ room }) => {
         }
     };
 
+try {    
     if (isCorrect) {
         return (
             <div>
@@ -54,6 +55,9 @@ const Room = ({ room }) => {
                 </form>
             </div>
         );
+    }
+} catch (error) {
+    return <div>{error.message}</div>;
     }
 };
 
