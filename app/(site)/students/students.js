@@ -15,6 +15,11 @@ const Students = async () => {
                     </li>
                 ))}
             </ul>
+            <Link href="/studentForm"
+            className="btn btn-lg btn-primary mt-3"
+            >
+                Add Student
+            </Link>
         </div>
     );
 }

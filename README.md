@@ -3,37 +3,24 @@
 It was such a challenge to make this project. I had to learn a lot of new things, and I'm still learning.
 
 
-First, run the development server:
+## What I need to learn
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- [ ] next/auth
+- [ ] next/image
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Things to improve
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- [ ] Add a better design (I'm capable of but I need more data to make a better design).
+- [ ] Add a better accessibility (If I had to make a bigger project, I would use a library like [https://www.npmjs.com/package/react-aria](https://www.npmjs.com/package/react-aria) to make a better accessibility).
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Documentation
 
-## Learn More
+NextJS 13 Docs: [https://nextjs.org/docs/getting-started](https://nextjs.org/docs/getting-started)
 
-To learn more about Next.js, take a look at the following resources:
+Bootstrap 5 Docs: [https://getbootstrap.com/docs/5.1/getting-started/introduction/](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ReactJS Docs: [https://reactjs.org/docs/getting-started.html](https://reactjs.org/docs/getting-started.html)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I have watched a lot of videos on YouTube to learn how to make this project.

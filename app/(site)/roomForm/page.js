@@ -31,6 +31,14 @@ const RoomForm = () => {
             .then((data) => console.log(data));
 
             setRoom({ name: '', description: '', password: '' });
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Room created successfully',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            
         } else {
             Swal.fire({
                 icon: 'error',

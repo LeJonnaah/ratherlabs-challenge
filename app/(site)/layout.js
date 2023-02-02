@@ -1,7 +1,7 @@
 import '../../styles/globals.css'
 import 'bootswatch/dist/superhero/bootstrap.min.css'
 import NavBar from '../components/ui/NavBar'
-import SideBar from 'app/components/ui/SideBar'
+import AdminSideBar from 'app/components/ui/AdminSideBar'
 import Footer from '../components/ui/Footer'
 
 export default function RootLayout({ children }) {
@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
                 <div
                 className='row'
                 >
-                    <SideBar />
+                    <AdminSideBar />
                     <main
                     className='col-10'
                     >

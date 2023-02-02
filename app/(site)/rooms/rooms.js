@@ -1,6 +1,5 @@
 import { getRooms } from "@lib/prisma/rooms";
 import Link from "next/link";
-import DeleteButton from "app/components/ui/DeleteButton";
 
 const Rooms = async () => {
     const { rooms } = await getRooms();
@@ -18,12 +17,11 @@ const Rooms = async () => {
                         >
                             {room.name}
                         </Link>
-                        {/* <DeleteButton id={room.id} /> */}
                     </li>
                 ))}
             </ul>
             <Link href="/roomForm"
-            className="btn btn-lg btn-primary"
+            className="btn btn-lg btn-primary mt-3"
             >
                 Create a new room
             </Link>

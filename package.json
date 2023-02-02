@@ -1,5 +1,8 @@
 {
-  "name": "nextjs-mongodb-app",
+    "engines": {
+      "node": "16.6.1"
+    },
+  "name": "ratherlabs-challenge",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,7 +16,6 @@
     "@next/font": "13.1.5",
     "@prisma/client": "^4.9.0",
     "bootswatch": "^5.2.3",
-    "clsx": "^1.2.1",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.5",
     "mongodb": "^4.13.0",

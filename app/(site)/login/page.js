@@ -1,53 +1,75 @@
 'use client'
 
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { signIn } from 'next-auth/react';
+import Swal from 'sweetalert2'
 
-const LoginForm = () => {
-    const [email, setEmail] = useState('');
+const LoginPage = () => {
     const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const [isCorrect, setIsCorrect] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        const result = await signIn('credentials', {
-            redirect: false,
-            email,
-            password,
-        });
-
-        if (result.error) {
-            console.log(result.error);
-        } else {
-            window.location.href = '/dashboard';
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        if (name === 'password') {
+            setPassword(value);
+        } else if (name === 'username') {
+            setUsername(value);
         }
     };
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <fieldset>
-                <legend>Login</legend>
-                <label htmlFor="email">Email</label>
-                <input
-                    type="text"
-                    name="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <label htmlFor="password">Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit">Login</button>
-            </fieldset>
-        </form>
-    );
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (password === 'admin' || password === 'admin') {
+            setIsCorrect(true);
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Invalid password or username!',
+            });
+        }
+    }
+
+    if (isCorrect) {
+        return (
+            <div>
+                <h1>Logged in!</h1>
+            </div>
+        );
+    } else {
+        return (
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <h1>Login</h1>
+                    <div className='form-group'>
+                        <label htmlFor='username' className='form-label'>Username</label>
+                        <input
+                            type='text'
+                            className='form-control'
+                            id='username'
+                            name='username'
+                            value={username}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor='password' className='form-label'>Password</label>
+                        <input
+                            type='password'
+                            className='form-control mb-3'
+                            id='password'
+                            name='password'
+                            value={password}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <button type='submit' className='btn btn-primary'>
+                        Enter
+                    </button>
+                </form>
+            </div>
+        );
+    }
 };
 
-export default LoginForm;
+export default LoginPage;

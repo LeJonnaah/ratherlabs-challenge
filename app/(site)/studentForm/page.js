@@ -9,6 +9,7 @@ const StudentForm = () => {
         lastName: '',
         password: '',
         age: '',
+        room: '',
         gender: '',
     });
 
@@ -20,7 +21,7 @@ const StudentForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (student.name !== '' || student.age !== '' || student.password !== '') {
+        if (student.name !== '' || student.age !== '' || student.password !== '' || student.room !== '' || student.lastName !== '' || student.gender) {
             fetch('/api/students', {
                 method: 'POST',
                 headers: {
@@ -35,9 +36,18 @@ const StudentForm = () => {
                 name: '',
                 lastName: '',
                 age: '',
-                gender: '',
                 password: '',
+                room: '',
+                gender: '',
             });
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Student created successfully',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            
         } else {
             Swal.fire({
                 icon: 'error',
@@ -74,7 +84,7 @@ const StudentForm = () => {
             <div className='form-group'>
                 <label htmlFor='age' className='form-label'>Age</label>
                 <input
-                    type='text'
+                    type='number'
                     className='form-control'
                     id='age'
                     name='age'
@@ -83,23 +93,35 @@ const StudentForm = () => {
                 />
             </div>
             <div className='form-group'>
-                <label htmlFor='gender'
-                className='form-label'>Gender</label>
-                <select
+                <label htmlFor='gender' className='form-label'>Gender</label>
+                <input
+                    type='text'
                     className='form-control'
-                    id='gender'>
-                        <option value={student.gender}>Male</option>
-                        <option>Girl</option>
-                </select>
+                    id='gender'
+                    name='gender'
+                    value={student.gender}
+                    onChange={handleChange}
+                />
             </div>
             <div className='form-group'>
                 <label htmlFor='password' className='form-label'>Password</label>
                 <input
                     type='password'
-                    className='form-control mb-3'
+                    className='form-control'
                     id='password'
                     name='password'
                     value={student.password}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className='form-group'>
+                <label htmlFor='room' className='form-label'>Room</label>
+                <input
+                    type='text'
+                    className='form-control mb-3'
+                    id='room'
+                    name='room'
+                    value={student.room}
                     onChange={handleChange}
                 />
             </div>

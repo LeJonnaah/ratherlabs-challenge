@@ -8,7 +8,7 @@ const RoomSelect = async () => {
             htmlFor="room"
             className="block text-sm font-medium text-gray-700"
         >
-            Select a room
+            Available Rooms
             <select
                 id="room"
                 name="room"
